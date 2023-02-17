@@ -16,12 +16,7 @@ status = "Design Project"
 
 @client.event
 async def on_ready():
-    change_status.start()
     print('Bot = ready')
-
-@tasks.loop(seconds=180)
-async def change_status():
-    await client.change_presence(activity=discord.Game(status))
 
 #Loads extension
 @client.command()
