@@ -13,7 +13,6 @@ class Deadlines(commands.Cog):
     
     @tasks.loop(time = datetime.time(hour=23, minute=0, second=0, tzinfo=utc))
     async def check_loop(self): 
-        print("Looped")
         channel = self.client.get_channel(1075132101994745886) # Deadlines channel
         # channel = self.client.get_channel(922492279090995322) # Testchannel
         message1 = ""
@@ -93,7 +92,6 @@ class Deadlines(commands.Cog):
     async def showdate(self, ctx):
         with open('deadlines.txt', 'r') as file:
             content = file.readlines()
-        print(content)
         page = 1
         message = ''
         current_date = ''
