@@ -30,14 +30,14 @@ class Deadlines(commands.Cog):
                     newfile.write(content[i])   
                     # Check if date is coming closer
                     if date_time <= datetime.datetime.now() + datetime.timedelta(days=1):
-                        message1 += name + '\n'
-                    elif date_time <= datetime.datetime.now() + datetime.timedelta(days=3):
-                        message3 += name + '\n'
+                        message1 += date + ': ' + name + '\n'
+                    elif date_time <= datetime.datetime.now() + datetime.timedelta(days=7) and datetime.date.today().weekday() == 5:
+                        message3 += date + ': ' + name + '\n'
         if message1 != None:
             embed1 = discord.Embed(title = "1 day left for upcoming deadlines", description=message1)
             await channel.send(embed = embed1)
         if message3 != None:
-            embed3 = discord.Embed(title = "3 days left for upcoming deadlines", description=message3)
+            embed3 = discord.Embed(title = "Upcoming deadlines for next week", description=message3)
             await channel.send(embed = embed3)
 
     @check_loop.before_loop
